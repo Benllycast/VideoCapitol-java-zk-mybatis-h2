@@ -1,0 +1,35 @@
+Video Capitol
+
+Autor: 
+  Benjamin E.Castillo Castro
+  Ingeniero de Sistemas
+  benllycast@gmail.com , benllycast@hotmail.com 
+  (https://github.com/Benllycast)
+  
+github del proyecto: 
+  https://github.com/Benllycast/VideoCapitol-java-zk-mybatis-h2
+
+Herramientas de desarrollo
+  SO: linux Mint 17.3
+  IDE: eclipse + ZK plugin
+  Control de dependencias: MAVEN
+  Servidor de Pruebas: WildFly 11, jetty (pluigin maven)
+  BD: H2 embeded - basada en archivos en la carpeta de usuario
+
+cargar base de datos:
+  inmediatamente despues de copilar y ejecutar el proyecto por primera vez 
+  hay que ejecutar la clase Testing.java (src/test/java/videocapitol/Testing.java)
+  para crear la base de datos. solo es necesario a la primera vez para que se
+  pueda crear el archivo de base de datos necesarios para la prueba
+  
+scripts sql: 
+  src/main/resources/sql/**.sql
+
+consola de H2:
+  http://localhost:8080/videocapitol/console (despues de iniciar el proyecto)
+
+Dependencias (todo desde maven):
+  zk framework
+  MyBatis -> 3.4.4
+  H2 -> 1.4.196
+  
