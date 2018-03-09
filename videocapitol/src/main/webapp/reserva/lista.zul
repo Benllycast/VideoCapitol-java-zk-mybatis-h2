@@ -1,36 +1,44 @@
 <?page title="Reservas" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="Reservas"
-    apply="org.zkoss.bind.BindComposer"
-    viewModel="@id('vm') @init('com.webapp.videocapitol.reservas.ListaViewModel')">
-    <div>
-        <listbox model="@bind(vm.reservas)" 
-            selectedItem="@bind(vm.selectedReserva)"
-            emptyMessage="No hay reservas registradas">
-            <listhead>
-                <listheader label="CLIENTE"/>
-                <listheader label="TITULO"/>
-                <listheader label="FECHA"/>
-            </listhead>
-            <template name="model">
-                <listitem>
-                    <listcell>
-                        <label value="@load(each.cliente.nombre)"/>
-                    </listcell>
-                    <listcell>
-                        <label value="@load(each.pelicula.titulo)"/>
-                    </listcell>
-                    <listcell>
-                        <label value="@load(each.fechaHora) @converter('formatedDate', format='dd/MM/yyyy hh:mm:ss')"/>
-                    </listcell>
-                </listitem>
-            </template>
-        </listbox>
-    </div>
-    <div>
-        <hlayout>
-            <button label="regresar" href="../index.zul"/>
-        </hlayout>
-    </div>
-</window>
+    <window title="Reservas"
+        viewModel="@id('vm') @init('com.webapp.videocapitol.reservas.ListaViewModel')"
+    >
+        <vlayout>
+            <hlayout>
+                <listbox model="@bind(vm.reservas)"
+                    selectedItem="@bind(vm.selectedReserva)"
+                    emptyMessage="No hay reservas registradas"
+                >
+                    <listhead>
+                        <listheader label="CLIENTE" />
+                        <listheader label="TITULO" />
+                        <listheader label="FECHA" />
+                    </listhead>
+                    <template name="model">
+                        <listitem>
+                            <listcell>
+                                <label
+                                    value="@load(each.cliente.nombre)"
+                                />
+                            </listcell>
+                            <listcell>
+                                <label
+                                    value="@load(each.pelicula.titulo)"
+                                />
+                            </listcell>
+                            <listcell>
+                                <label
+                                    value="@load(each.fechaHora) @converter('formatedDate', format='dd/MM/yyyy hh:mm:ss')"
+                                />
+                            </listcell>
+                        </listitem>
+                    </template>
+                </listbox>
+            </hlayout>
+            <hlayout>
+                <button label="regresar" href="../index.zul" />
+                <button label="Nuevo" href="./nuevo.zul" />
+            </hlayout>
+        </vlayout>
+    </window>
 </zk>

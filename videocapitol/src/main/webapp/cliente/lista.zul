@@ -1,40 +1,46 @@
 <?page title="Clientes" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window apply="org.zkoss.bind.BindComposer"
-    title="Clientes" viewModel="@id('vm') @init('com.webapp.videocapitol.clientes.ListaViewModel')">
+    <window title="Clientes"
+        viewModel="@id('vm') @init('com.webapp.videocapitol.clientes.ListaViewModel')"
+    >
+        <vlayout>
+            <hlayout>
+                <listbox model="@bind(vm.clienteListModel)"
+                    selectedItem="@bind(vm.selectedClienteModel)"
+                    emptyMessage="No hay clientes registrados"
+                >
+                    <listhead>
+                        <listheader label="RUT" />
+                        <listheader label="NOMBRE" />
+                        <listheader label="DIRECCION" />
+                        <listheader label="TELEFONO" />
+                    </listhead>
+                    <template name="model">
+                        <listitem>
+                            <listcell>
+                                <label value="@bind(each.rut)" />
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(each.nombre)" />
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(each.direccion)" />
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(each.telefono)" />
+                            </listcell>
+                        </listitem>
+                    </template>
+                </listbox>
+            </hlayout>
+            <hlayout>
+                <button label="regresar" href="../index.zul" />
+                <button label="Nuevo" href="./nuevo.zul" />
+            </hlayout>
+        </vlayout>
+        <div>
 
-    <listbox model="@bind(vm.clienteListModel)" 
-        selectedItem="@bind(vm.selectedClienteModel)"
-        emptyMessage="No hay clientes registrados">
-        <listhead>
-            <listheader label="RUT"/>
-            <listheader label="NOMBRE"/>
-            <listheader label="DIRECCION"/>
-            <listheader label="TELEFONO"/>
-        </listhead>
-        <template name="model">
-            <listitem>
-                <listcell>
-                    <label value="@bind(each.rut)"/>
-                </listcell>
-                <listcell>
-                    <label value="@bind(each.nombre)"/>
-                </listcell>
-                <listcell>
-                    <label value="@bind(each.direccion)"/>
-                </listcell>
-                <listcell>
-                    <label value="@bind(each.telefono)"/>
-                </listcell>
-            </listitem>
-        </template>
-    </listbox>
-
-<div>
-    <hlayout>
-        <button label="regresar" href="../index.zul"/>
-    </hlayout>
-</div>
-</window>
+        </div>
+    </window>
 
 </zk>
