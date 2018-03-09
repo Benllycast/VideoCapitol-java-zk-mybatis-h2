@@ -1,0 +1,42 @@
+<?page title="Reserva - Nueva" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Reserva - Nueva"
+    apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('com.webapp.videocapitol.reservas.NuevoViewModel')">
+    <vlayout>
+        <hbox pack="center" align="center" width="100%">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label value="CLIENTE"/>
+                        <combobox id="cmbCliente" model="@load(vm.clientes)" selectedIndex="@bind(vm.pickedCliente)" selectedItem="@bind(vm.selectedCliente)">
+                            <template name="model">
+                                <comboitem label="@load(each.nombre)"/>
+                            </template>
+                        </combobox>
+                    </row>
+                    <row>
+                        <label value="PELICULA"/>
+                        <combobox id="cmbPelicuca"
+                            model="@load(vm.peliculas)"
+                            selectedIndex="@bind(vm.pickedPelicula)"
+                            selectedItem="@bind(vm.selectedPelicula)">
+                            <template name="model">
+                                <comboitem label="@load(each.titulo)"/>
+                            </template>
+                        </combobox>
+                    </row>
+                    <row>
+                        <label value="FECHA"/>
+                        <datebox value="@bind(vm.nuevoModelo.fechaHora)" format="dd/MM/yyy hh:mm:ss"/>
+                    </row>
+                </rows>
+            </grid>
+        </hbox>
+        <hbox pack="center" align="center" width="100%">
+            <button label="Aceptar" onClick="@command('addNuevo')"/>
+            <button label="Cancelar" style="background-color:red" href="../index.zul"/>
+        </hbox>
+    </vlayout>
+</window>
+</zk>

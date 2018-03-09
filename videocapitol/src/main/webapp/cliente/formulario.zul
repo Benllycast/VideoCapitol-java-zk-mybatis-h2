@@ -1,0 +1,25 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <vlayout >
+        <grid hflex="min">
+            <rows>
+                <row>
+                    RUT:
+                    <textbox id="txtRut"/>
+                </row>
+                <row>
+                    Nombre:
+                    <textbox id="txtNombre"/>
+                </row>
+                <row>
+                    Direccion:
+                    <textbox id="txtDireccion"/>
+                </row>
+                <row>
+                    Telefono:
+                    <textbox id="txtTelefono"/>
+                </row>
+            </rows>
+        </grid>
+    </vlayout>
+</zk>

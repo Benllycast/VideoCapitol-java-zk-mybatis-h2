@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webapp.videocapitol.reservas.ReservaMapper">
+
+    <resultMap type="ReservaModel" id="result">
+        <result property="id" column="id"/>
+        <result property="clienteID" column="cliente_id"/>
+        <result property="peliculaID" column="pelicula_id"/>
+        <result property="fechaHora" column="fecha_hora"/>
+    </resultMap>
+    
+   <select id="findAll" resultMap="result">
+        SELECT * FROM RESERVA;
+   </select>
+   
+   <insert id="add" parameterType="ReservaModel">
+        INSERT INTO RESERVA(cliente_id, pelicula_id, fecha_hora) 
+        VALUES('${clienteID}', '${peliculaID}', CURRENT_TIMESTAMP());
+   </insert>
+
+</mapper>

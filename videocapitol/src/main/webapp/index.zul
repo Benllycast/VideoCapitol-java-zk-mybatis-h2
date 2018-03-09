@@ -1,0 +1,27 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('com.webapp.videocapitol.MyViewModel')"
+		validationMessages="@id('vmsgs')"
+        title="Video Capitol">
+		<menubar autodrop="true">
+            <menu label="Cliente">
+                <menupopup>
+                    <menuitem label="Nuevo" href="cliente/nuevo.zul"/>
+                    <menuitem label="Ver Clientes" href="cliente/lista.zul"/>
+                </menupopup>
+            </menu>
+            <menu label="Pelicula">
+                <menupopup>
+                    <menuitem label="Nueva" href="pelicula/nuevo.zul"/>
+                    <menuitem label="Ver Peliculas" href="pelicula/lista.zul"/>
+                </menupopup>
+            </menu>
+            <menu label="Reservacion">
+                <menupopup>
+                    <menuitem label="Nueva" href="reserva/nuevo.zul"/>
+                    <menuitem label="Ver Reservas" href="reserva/lista.zul" />
+                </menupopup>
+            </menu>
+        </menubar>
+	</window>
+</zk>

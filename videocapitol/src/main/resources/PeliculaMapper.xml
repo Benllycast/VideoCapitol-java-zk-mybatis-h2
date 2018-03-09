@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webapp.videocapitol.peliculas.PeliculaMapper">
+    
+    <resultMap type="PeliculaModel" id="result">
+        <result property="id" column="id"/>
+        <result property="titulo" column="titulo"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="actores" column="actores"/>
+        <result property="director" column="director"/>
+        <result property="inventario" column="inventario"/>
+    </resultMap>
+    
+   <select id="findAll" resultMap="result">
+        SELECT * FROM PELICULA;
+   </select>
+   
+   <select id="find" parameterType="long" resultMap="result">
+        SELECT * FROM PELICULA WHERE id = #{id};
+   </select>
+   
+   <insert id="add" parameterType="PeliculaModel">
+        INSERT INTO PELICULA(titulo, descripcion, actores, director, inventario) 
+        VALUES('${titulo}', '${descripcion}','${actores}','${director}','${inventario}');
+   </insert>
+
+</mapper>

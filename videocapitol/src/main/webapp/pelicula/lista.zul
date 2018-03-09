@@ -1,0 +1,35 @@
+<?page title="Peliculas" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Peliculas" apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('com.webapp.videocapitol.peliculas.ListaViewModel')">
+<div>
+    <listbox model="@bind(vm.peliculaListModel)" 
+        selectedItem="@bind(vm.selectedPeliculaModel)"
+        emptyMessage="No hay clientes registrados">
+        <listhead>
+            <listheader label="TITULO"/>
+            <listheader label="DIRECTOR"/>
+            <listheader label="INVENTARIO"/>
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell>
+                    <label value="@bind(each.titulo)"/>
+                </listcell>
+                <listcell>
+                    <label value="@bind(each.director)"/>
+                </listcell>
+                <listcell>
+                    <label value="@bind(each.inventario)"/>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+</div>
+<div>
+    <hlayout>
+        <button label="regresar" href="../index.zul"/>
+    </hlayout>
+</div>
+</window>
+</zk>

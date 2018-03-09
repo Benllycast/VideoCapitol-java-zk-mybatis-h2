@@ -1,0 +1,30 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<vlayout
+    form="@id('modelo') @ref(vm.nuevoModelo) @save(vm.nuevoModelo, before='addNuevo')">
+    <grid hflex="min">
+        <rows>
+            <row>
+                <label value="TITULO"/>
+                <textbox value="@bind(modelo.titulo)"/>
+            </row>
+            <row>
+                <label value="DIRECTOR"/>
+                <textbox value="@bind(modelo.director)"/>
+            </row>
+            <row>
+                <label value="DESCRIPCION"/>
+                <textbox value="@bind(modelo.descripcion)" multiline="true" height="200px"/>
+            </row>
+            <row>
+                <label value="ACTORES"/>
+                <textbox value="@bind(modelo.actores)" multiline="true" height="200px"/>
+            </row>            
+            <row>
+                <label value="INVENTARIO"/>
+                <textbox value="@bind(modelo.inventario)"/>
+            </row>
+        </rows>
+    </grid>
+</vlayout>
+</zk>
