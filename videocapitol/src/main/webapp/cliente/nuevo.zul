@@ -1,15 +1,21 @@
 <?page title="Cliente - Nuevo" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window
-    title="Cliente - Nuevo" apply="com.webapp.videocapitol.clientes.ClienteNuevoController">
-    <vlayout>
-        <hbox pack="center" align="center" width="100%">
-            <include id="frmCliente" src="formulario.zul" modelo="@ref(vm.nuevoModelo)"/>
-        </hbox>
-        <hbox pack="center" align="center" width="100%">
-            <button id="btnAceptar" label="Aceptar" />
-            <button id="btnCancelar" label="Cancelar" style="background-color:red" href="../index.zul"/>
-        </hbox>
-    </vlayout>
-</window>
+    <include id="nav" src="/templates/nav_bar.zul" />
+    <window title="Cliente - Nuevo"
+        apply="com.webapp.videocapitol.clientes.ClienteNuevoController"
+    >
+        <vlayout>
+            <hbox pack="center" align="center" width="100%">
+                <include id="frmCliente" src="formulario.zul"
+                    modelo="@ref(vm.nuevoModelo)"
+                />
+            </hbox>
+            <hbox pack="center" align="center" width="100%">
+                <button id="btnAceptar" label="Aceptar" />
+                <button id="btnCancelar" label="Cancelar"
+                    style="background-color:red" href="/index.zul"
+                />
+            </hbox>
+        </vlayout>
+    </window>
 </zk>

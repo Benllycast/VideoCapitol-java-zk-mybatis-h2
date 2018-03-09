@@ -1,16 +1,19 @@
 <?page title="Pelicula - Nueva" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="Pelicula - Nueva"
-    apply="org.zkoss.bind.BindComposer"
-    viewModel="@id('vm') @init('com.webapp.videocapitol.peliculas.NuevoViewModel')">
-    <vlayout>
-        <hbox pack="center" align="center" width="100%">
-            <include src="formulario.zul"/>
-        </hbox>
-        <hbox pack="center" align="center" width="100%">
-            <button label="Aceptar" onClick="@command('addNuevo')"/>
-            <button label="Cancelar" style="background-color:red" href="../index.zul"/>
-        </hbox>
-    </vlayout>
-</window>
+    <include id="nav" src="/templates/nav_bar.zul" />
+    <window title="Pelicula - Nueva" apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('com.webapp.videocapitol.peliculas.NuevoViewModel')"
+    >
+        <vlayout>
+            <hbox pack="center" align="center" width="100%">
+                <include src="formulario.zul" />
+            </hbox>
+            <hbox pack="center" align="center" width="100%">
+                <button label="Aceptar" onClick="@command('addNuevo')" />
+                <button label="Cancelar" style="background-color:red"
+                    href="/index.zul"
+                />
+            </hbox>
+        </vlayout>
+    </window>
 </zk>

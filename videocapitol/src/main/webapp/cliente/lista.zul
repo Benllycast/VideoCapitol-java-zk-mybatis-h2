@@ -1,5 +1,6 @@
 <?page title="Clientes" contentType="text/html;charset=UTF-8"?>
 <zk>
+    <include id="nav" src="/templates/nav_bar.zul"/>
     <window title="Clientes"
         viewModel="@id('vm') @init('com.webapp.videocapitol.clientes.ListaViewModel')"
     >
@@ -34,7 +35,7 @@
                 </listbox>
             </hlayout>
             <hlayout>
-                <button label="regresar" href="../index.zul" />
+                <button label="Regresar" href="../index.zul" />
                 <button label="Nuevo" href="./nuevo.zul" />
             </hlayout>
         </vlayout>
