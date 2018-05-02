@@ -1,0 +1,136 @@
+<?page title="test1" contentType="text/html;charset=UTF-8"?>
+<?link href="/recursos/theme/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link href="/recursos/theme/css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href="/recursos/theme/less/index.css.dsp" rel="stylesheet" type="text/css"?>
+<zk>
+<window title="test1" border="normal"
+apply="com.webapp.videocapitol.test.TeoriaCasoController">
+<grid style="border: none">
+			<columns>
+				<column />
+				<column id="C_FormAddTeoriaCaso" visible="false" />
+			</columns>
+			<rows>
+				<row valign="top">
+					<cell>
+						<grid style="border: none">
+							<rows>
+								<row>
+									<groupbox mold="3d">
+										<caption label="Teoria del Caso" />
+											<listbox id="Lb_TeoriaCaso" 
+											nonselectableTags=" " width="100%"
+											emptyMessage="noregistros">
+												<listhead>
+													<listheader label="Personas" align="center"/>
+													<listheader label="Registra bienes_elementos afectados" align="center"/>
+													<listheader label="Teoria del Caso" align="center"/>
+													<listheader label="resumen " align="center"/>
+													<listheader id="Lh_EditarTeoriaCaso" label=" " align="center" />
+													<listheader id="Lh_EliminarTeoriaCaso" label=" " align="center" />
+												</listhead>
+												<template name="model">
+													<listitem focus="true">
+														<listcell>
+															<textbox cols="5" rows="3" value="${each.nombrePersonaCaso}" multiline="true" readonly="true" hflex="true"/>
+														</listcell>
+														<listcell>
+															<textbox cols="5" rows="3" value="${each.descBienElemento}" multiline="true" readonly="true" hflex="true"/>
+														</listcell>
+														<listcell>
+															<textbox cols="5" rows="3" value="${each.teoria}" multiline="true" readonly="true" hflex="true"/>
+														</listcell>
+														<listcell>
+															<textbox cols="5" rows="3" value="${each.resumen}" multiline="true" readonly="true" hflex="true"/>
+														</listcell>
+														<listcell>
+															<button label="editar" sclass="btn btn-sm btn-info no-border" forward="onClick=Lb_TeoriaCaso.onOpenEditTeoriaCaso" />
+														</listcell>
+														<listcell>
+															<button label="eliminar" sclass="btn btn-sm btn-danger no-border" forward="onClick=Lb_TeoriaCaso.onEliminarTeoriaCaso" />
+														</listcell>
+													</listitem>
+												</template>
+											</listbox>
+									</groupbox>
+								</row>
+								<row align="center" id="R_AgregarPrincipal" visible="true">
+									<button id="B_AddTeoria" label="agregar Teoria del Caso" sclass="btn btn-sm btn-success no-border" forward="onClick = B_AddTeoria.onAddPrincipal"/>
+								</row>
+							</rows>
+						</grid>
+					</cell>
+					<cell valign="top">
+						<grid style="border: none">
+							<columns>
+								<column width="20%"/>
+								<column width="80%"/>
+							</columns>
+							<rows>
+								<row spans="2">
+									<div align="center" class="label label-default"
+										vflex="true" width="100%" sclass="subtitulo_modulo">
+										<label style="font-size:20px" />
+									</div>
+								</row>
+								<row valign="top">
+									<cell align="right">
+										<label style="font-size:14px" value="victima" hflex="true"/>
+									</cell>
+									<cell>
+										<!-- <selector id="Se_IdPersonaVictima" atributo="nombre_personacaso" label="seleccione_item"/> -->
+                                        <combobox id="Se_IdPersonaVictima" selectedItem="@bind()" model="@load(self.personas)">
+                                            <template name="model">
+                                                <comboitem label="${each}"/>
+                                            </template>
+                                        </combobox>
+									</cell>
+								</row>
+								<row valign="top">
+									<cell align="right">
+										<label style="font-size:14px" value="bien_elemento" hflex="true"/>
+									</cell>
+									<cell>
+										<!-- <selector id="Se_IdBienElemento" atributo="desc_bienelemento" label="seleccione_item"/> -->
+                                        <combobox id="Se_IdBienElemento" selectedItem="@bind(self.teoriaCasoBienElementoDTO)" model="@load(self.bienes)">
+                                            <template name="model">
+                                                <comboitem label="${each}"/>
+                                            </template>
+                                        </combobox>
+									</cell>
+								</row>
+								<row valign="top">
+									<cell align="right">
+									<label style="font-size:14px" value="teoria*" hflex="true"/>
+									</cell>
+									<cell>
+										<textbox id="TB_Teoria" rows="3" hflex="true"/>
+									</cell>
+								</row>
+								<row valign="top">
+									<cell align="right">
+										<label style="font-size:14px" value="resumen*" hflex="true"/>
+									</cell>
+									<cell>
+										<textbox id="TB_Resumen" rows="3" hflex="true"/>
+									</cell>
+								</row>
+								<row valign="top">
+									<cell/>
+									<cell align="left">
+										<space/>
+										<button label="agregar" sclass="btn btn-sm btn-success no-border" id="B_EnviarTeoriaCaso" forward="onClick=B_EnviarTeoriaCaso.onEnviarTeoriaCaso"/>
+										<space/>
+										<button label="actualizar" sclass="btn btn-sm btn-success no-border" id="B_EditarTeoriaCaso" forward="onClick=B_EditarTeoriaCaso.onEditarTeoriaCaso" />
+										<space/>
+										<button label="cancelar" sclass="btn btn-sm btn-danger no-border" id="B_CerrarTeoria" forward="onClick=B_CerrarTeoria.onCloseTeoria"/>
+									</cell>
+								</row>
+							</rows>
+						</grid>
+					</cell>
+				</row>
+			</rows>
+		</grid>
+</window>
+</zk>
